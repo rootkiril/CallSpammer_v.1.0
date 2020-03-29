@@ -64,10 +64,10 @@ def main():
                     print(Fore.RED + "- Ошибка! Минимальная длина имени 2 символа!")
                     continue
             else:
-                print(Fore.RED + "- Ошибка! Допустимые только русские и украинские буквы, исключены числа.")
+                print(Fore.RED + "- Ошибка! Допустимы только русские и украинские буквы, исключены числа.")
                 continue
         except:
-            print(Fore.RED + "- Некоректно!")
+            print(Fore.RED + "- Некорректно!")
             continue
 
     while True:
@@ -84,10 +84,10 @@ def main():
                 print(Fore.LIGHTGREEN_EX + "Ok.")
                 break
             else:
-                print(Fore.RED + "- Ошибка! Допустимы только русские и украинскые буквы, исключены числа.")
+                print(Fore.RED + "- Ошибка! Допустимы только русские и украинские буквы, исключены числа.")
                 continue
         except:
-            print(Fore.RED + "Некоректно!")
+            print(Fore.RED + "Некорректно!")
 
     while True:
         delay = input(Fore.CYAN + "Введите время задержки между запросами (мин. 4): " + Style.RESET_ALL)
@@ -100,9 +100,9 @@ def main():
                     print(Fore.RED + "- Ошибка! Мимимальное время задержки 4с.")
                     continue
             else:
-                print(Fore.RED + "Некоректно!")
+                print(Fore.RED + "Некорректно!")
         except:
-            print(Fore.RED + "Некоректно!")
+            print(Fore.RED + "Некорректно!")
             continue
     send_requests_call(str(name.title()), str(phone_num), str(name_o.title()), int(delay))
 

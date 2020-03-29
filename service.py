@@ -12,7 +12,6 @@ def random_token():
 
 
 def send_requests_call(name, phone_num, name_o, delay):
-    clear()
     print(Fore.LIGHTGREEN_EX + "Ok. Начнем!")
     print(Fore.CYAN + 'Номер телефона: ', f'+38{phone_num}')
     print(Fore.CYAN + 'Жертва: ', f'{name} {name_o}')
@@ -631,5 +630,5 @@ def send_requests_call(name, phone_num, name_o, delay):
             print(Fore.CYAN + "\nНАШ ТЕЛЕГРАМ КАНАЛ: ", Fore.CYAN + "@up_hacker")
             break
         else:
-            print(Fore.RED + 'Некоректно!\n' + Style.RESET_ALL)
+            print(Fore.RED + 'Некорректно!\n' + Style.RESET_ALL)
             continue
