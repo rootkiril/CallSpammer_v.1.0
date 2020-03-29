@@ -1,6 +1,7 @@
 import os
 import re
 from service import *
+from colorama import Fore
 
 
 def clear():
@@ -10,14 +11,20 @@ def clear():
         _ = os.system('clear')
 
 
-def is_allowed(string):
+def is_allowed_str(string):
     char_regex = re.compile(r'[^а-яА-ЯєіїЄІЇ]')
     string = char_regex.search(string)
     return not bool(string)
 
 
+def is_allowed_num(string):
+    char_regex = re.compile(r'[^0-9]')
+    string = char_regex.search(string)
+    return not bool(string)
+
+
 def main():
-    print("""
+    print(Fore.CYAN + """
       _____      _ _  _____                                           
      / ____|    | | |/ ____|      UKRAINE                                     
     | |     __ _| | | (___  _ __   __ _ _ __ ___  _ __ ___   ___ _ __ 
@@ -29,84 +36,77 @@ def main():
     """)
 
     while True:
-        phone_num = input("Введите номер телефона +38: ")
+        phone_num = input(Fore.MAGENTA + "Введите номер телефона +38: ")
         try:
-            phone_num = int(phone_num)
-            if isinstance(phone_num, int):
-                if len(str(phone_num)) == 9:
-                    phone_num = str(phone_num)
-                    print("Ok.")
+            if is_allowed_num(phone_num) is True:
+                if len(phone_num) == 10:
+                    print(Fore.LIGHTGREEN_EX + "Ok.")
                     break
                 else:
-                    print("Длина номера телефона должна состоять из 10 цифр!")
-                    continue
-        except:
-            print("Номер телефона введен неверно!")
-            continue
-
-    while True:
-        name = input("Имя жертвы (на укр/рус): ")
-        try:
-            if is_allowed(name) is True:
-                if len(name) > 2:
-                    print("Ok.")
-                    break
-                else:
-                    print("Минимальная длина имени 3 символа!")
+                    print(Fore.LIGHTRED_EX + "Длина номера телефона должна состоять из 10 цифр!")
                     continue
             else:
-                print("Допустимые только русские и украинские буквы, исключены числа.")
+                print(Fore.LIGHTRED_EX + "Допустимы только числа.")
                 continue
         except:
-            print("Некоректно!")
+            print(Fore.LIGHTRED_EX + "Номер телефона введен неверно!")
             continue
 
     while True:
-        name_o = input("Отчество жертвы (не обязательно): ")
+        name = input(Fore.MAGENTA + "Имя жертвы (на укр/рус): ")
         try:
-            if is_allowed(name_o) is True:
-                if len(name) > 2:
-                    print("Ok.")
+            if is_allowed_str(name) is True:
+                if len(name) >= 2:
+                    print(Fore.LIGHTGREEN_EX + "Ok.")
                     break
                 else:
-                    print("Минимальна длина имени 2 символа!")
+                    print(Fore.LIGHTRED_EX + "Минимальная длина имени 2 символа!")
                     continue
-            if name_o == '':
-                print("Ok.")
+            else:
+                print(Fore.LIGHTRED_EX + "Допустимые только русские и украинские буквы, исключены числа.")
+                continue
+        except:
+            print(Fore.LIGHTRED_EX + "Некоректно!")
+            continue
+
+    while True:
+        name_o = input(Fore.MAGENTA + "Отчество жертвы (не обязательно): ")
+        try:
+            if is_allowed_str(name_o) is True:
+                if len(name) >= 2:
+                    print(Fore.LIGHTGREEN_EX + "Ok.")
+                    break
+                else:
+                    print(Fore.LIGHTRED_EX + "Минимальна длина имени 2 символа!")
+                    continue
+            elif name_o == '':
+                print(Fore.LIGHTGREEN_EX + "Ok.")
                 break
             else:
-                print("Допустимые только русские и украинскые буквы, исключены числа.")
+                print(Fore.LIGHTRED_EX + "Допустимые только русские и украинскые буквы, исключены числа.")
                 continue
         except:
-            print("Некоректно!")
+            print(Fore.LIGHTRED_EX + "Некоректно!")
 
     while True:
-        delay = input("Введите время задержки между запросами (мин. 4): ")
+        delay = input(Fore.MAGENTA + "Введите время задержки между запросами (мин. 4): ")
         try:
             delay = int(delay)
             if isinstance(delay, int):
-                if delay < 4:
-                    delay = str(delay)
-                    print("Ok. Начнем!")
-                    # send_requests_call(name, phone_num, delay, name_o)
+                if delay >= 4:
+                    print(Fore.LIGHTGREEN_EX + "Ok. Начнем!")
+                    send_requests_call(str(name), str(phone_num), str(name_o), int(delay))
                     break
                 else:
-                    print("Нимимальное время задержки 4с.")
+                    print(Fore.LIGHTRED_EX + "Нимимальное время задержки 4с.")
                     continue
-            if delay == '':
-                print("Ok. Начнем!")
-                # send_requests_call(name, phone_num, delay, name_o)
-                break
+            else:
+                print(Fore.LIGHTRED_EX + "Некоректно!")
         except:
-            print("Некоректно!")
+            print(Fore.LIGHTRED_EX + "Некоректно!")
             continue
-    print(f"Спам завершился!\nУспешно: {done}.\nНеуспешно: {fail}")
 
-
-# name_o = input("Отчество жертвы (не обязательно): ")
-# print("Хорошо, начнем!")
-# send_requests_call(name, phone_num, delay)
-# print("Отправка запросов для звонка успешно окончена, ждите звонков!")
+    print(Fore.GREEN + f"Спам завершился!\nУспешно: {done}.\nНеуспешно: {fail}")
 
 
 if __name__ == '__main__':
