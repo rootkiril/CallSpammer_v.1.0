@@ -114,7 +114,7 @@ def main():
             clear()
             main()
         elif repeat in ('д', 'Д'):
-            send_requests_call(str(name.title()), str(phone_num), str(name_o.title()), int(1))
+            send_requests_call(str(name.title()), str(phone_num), str(name_o.title()), int(delay))
             break
         else:
             print(Fore.RED + 'Ошибка! Введите корректный ответ.')

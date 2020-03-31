@@ -16,7 +16,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     done = 0
     fail = 0
     try:
-        requests.post('hhttps://junker.kiev.ua/postmaster.php',
+        requests.post('https://junker.kiev.ua/postmaster.php',
                       data={
                           'name': name,
                           'tel': phone_num,
@@ -32,7 +32,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 3request
     counter += 1
     try:
-        requests.post('hhttps://mobileplanet.ua/new_record',
+        requests.post('https://mobileplanet.ua/new_record',
                       data={
                           'klient_name': name,
                           'klient_phone': phone_num,
@@ -49,7 +49,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 4request
     counter += 1
     try:
-        requests.post('hhttps://www.pestocafe.ua/apply-form/callback',
+        requests.post('https://www.pestocafe.ua/apply-form/callback',
                       data={
                           '_token': random_token(),
                           'name': name,
@@ -65,7 +65,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 5request
     counter += 1
     try:
-        requests.post('hhttps://yurcenter.com.ua/',
+        requests.post('https://yurcenter.com.ua/',
                       data={
                           'form[yurfirma_name]': name,
                           'form[yurfirma_number]': phone_num,
@@ -82,7 +82,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 6request
     counter += 1
     try:
-        requests.post('hhttp://www.advice.in.ua/vasha-zayavka-prinyata.html/',
+        requests.post('http://www.advice.in.ua/vasha-zayavka-prinyata.html/',
                       data={
                           'fio': name + '' + name_o,
                           'type': '2',
@@ -100,7 +100,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 7request
     counter += 1
     try:
-        requests.post('hhttps://holdyou.net/api/callback',
+        requests.post('https://holdyou.net/api/callback',
                       data={
                           'name': name,
                           'phone': phone_num
@@ -115,7 +115,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 8request
     counter += 1
     try:
-        requests.post('hhttps://doc.ua/main/callbackrequest',
+        requests.post('https://doc.ua/main/callbackrequest',
                       data={
                           'crm_models_SupportRequest[user_name]': name,
                           'crm_models_SupportRequest[user_phone]': '+' + phone_num,
@@ -131,7 +131,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     # 9request
     counter += 1
     try:
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[partner_id]': '',
                           'callback[telephone]': phone_num,
@@ -148,7 +148,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1875',
                           'callback[doctor_id]': '8165',
@@ -169,7 +169,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1489',
                           'callback[doctor_id]': '5705',
@@ -190,7 +190,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1999',
                           'callback[doctor_id]': '8856',
@@ -211,7 +211,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1891',
                           'callback[doctor_id]': '10889',
@@ -232,7 +232,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '2015',
                           'callback[doctor_id]': '8933',
@@ -253,7 +253,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1576',
                           'callback[doctor_id]': '6368',
@@ -274,7 +274,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1576',
                           'callback[doctor_id]': '6367',
@@ -295,7 +295,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1489',
                           'callback[doctor_id]': '5704',
@@ -316,7 +316,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1877',
                           'callback[doctor_id]': '8167',
@@ -337,7 +337,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '2330',
                           'callback[doctor_id]': '10680',
@@ -358,7 +358,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '458',
                           'callback[doctor_id]': '7822',
@@ -379,7 +379,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1832',
                           'callback[doctor_id]': '7991',
@@ -400,7 +400,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '2342',
                           'callback[doctor_id]': '7444',
@@ -421,7 +421,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1832',
                           'callback[doctor_id]': '7990',
@@ -442,7 +442,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1832',
                           'callback[doctor_id]': '7996',
@@ -463,7 +463,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '2021',
                           'callback[doctor_id]': '8232',
@@ -484,7 +484,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1403',
                           'callback[doctor_id]': '9800',
@@ -505,7 +505,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1953',
                           'callback[doctor_id]': '8697',
@@ -526,7 +526,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '690',
                           'callback[doctor_id]': '1623',
@@ -547,7 +547,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '130',
                           'callback[doctor_id]': '7590',
@@ -568,7 +568,7 @@ def send_requests_call(name, phone_num, name_o, delay):
     counter += 1
     try:
         time_call = datetime.today().strftime("%Y.%m.%d,+%H:%M")
-        requests.post('hhttps://likarni.com/call',
+        requests.post('https://likarni.com/call',
                       data={
                           'callback[clinic_id]': '1929',
                           'callback[doctor_id]': '7495',
