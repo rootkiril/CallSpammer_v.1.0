@@ -39,31 +39,29 @@ def main():
     while True:
         phone_num = input(Fore.CYAN + "Введите номер телефона: +38" + Style.RESET_ALL)
         try:
-            if is_allowed_num(phone_num) is True:
-                if len(phone_num) == 10:
-                    print(Fore.LIGHTGREEN_EX + "Ok.")
-                    break
-                else:
-                    print(Fore.RED + "- Ошибка! Длина номера телефона должна состоять из 10 цифр!")
-                    continue
-            else:
+            if is_allowed_num(phone_num) is True and len(phone_num) == 10:
+                print(Fore.LIGHTGREEN_EX + "Ok.")
+                break
+            elif len(phone_num) != 10:
+                print(Fore.RED + "- Ошибка! Длина номера телефона должна состоять из 10 цифр!")
+                continue
+            elif is_allowed_num(phone_num) is False:
                 print(Fore.RED + "- Ошибка! Допустимы только числа.")
                 continue
         except:
-            print(Fore.RED + "- Ошибка! Номер телефона введен неверно!")
+            print(Fore.RED + "- Некорректно!")
             continue
 
     while True:
         name = input(Fore.CYAN + "Имя жертвы (на укр/рус): "+ Style.RESET_ALL)
         try:
-            if is_allowed_str(name) is True:
-                if len(name) >= 2:
-                    print(Fore.LIGHTGREEN_EX + "Ok.")
-                    break
-                else:
-                    print(Fore.RED + "- Ошибка! Минимальная длина имени 2 символа!")
-                    continue
-            else:
+            if is_allowed_str(name) is True and len(name) >= 2:
+                print(Fore.LIGHTGREEN_EX + "Ok.")
+                break
+            elif len(name) < 2:
+                print(Fore.RED + "- Ошибка! Минимальная длина имени 2 символа!")
+                continue
+            elif is_allowed_str(name) is False:
                 print(Fore.RED + "- Ошибка! Допустимы только русские и украинские буквы, исключены числа.")
                 continue
         except:
@@ -71,19 +69,18 @@ def main():
             continue
 
     while True:
-        name_o = input(Fore.CYAN + "Отчество жертвы (не обязательно): "+ Style.RESET_ALL)
+        name_o = input(Fore.CYAN + "Отчество жертвы (не обязательно): " + Style.RESET_ALL)
         try:
-            if is_allowed_str(name_o) is True:
-                if len(name) >= 2:
-                    print(Fore.LIGHTGREEN_EX + "Ok.")
-                    break
-                else:
-                    print(Fore.RED + "- Ошибка! Минимальна длина имени 2 символа!")
-                    continue
+            if is_allowed_str(name_o) is True and len(name_o) >= 2:
+                print(Fore.LIGHTGREEN_EX + "Ok.")
+                break
             elif name_o == '':
                 print(Fore.LIGHTGREEN_EX + "Ok.")
                 break
-            else:
+            elif len(name_o) < 2:
+                print(Fore.RED + "- Ошибка! Минимальна длина имени 2 символа!")
+                continue
+            elif is_allowed_str(name_o) < 2:
                 print(Fore.RED + "- Ошибка! Допустимы только русские и украинские буквы, исключены числа.")
                 continue
         except:
@@ -92,19 +89,36 @@ def main():
     while True:
         delay = input(Fore.CYAN + "Введите время задержки между запросами (мин. 4): " + Style.RESET_ALL)
         try:
-            delay = int(delay)
-            if isinstance(delay, int):
-                if delay >= 4:
-                    break
-                else:
-                    print(Fore.RED + "- Ошибка! Мимимальное время задержки 4с.")
-                    continue
-            else:
-                print(Fore.RED + "Некорректно!")
+            if int(delay) >= 4 and is_allowed_num(delay) is True:
+                print(Fore.LIGHTGREEN_EX + "Ok.")
+                break
+            elif int(delay) < 4:
+                print(Fore.RED + "- Ошибка! Мимимальное время задержки 4с.")
+                continue
+            elif is_allowed_num(delay) is False:
+                print(Fore.RED + "- Ошибка! Допустимы только числа.")
+                continue
+            elif delay == '':
+                print(Fore.RED + "- Ошибка! Не может быть пустым.")
+                continue
         except:
             print(Fore.RED + "Некорректно!")
             continue
-    send_requests_call(str(name.title()), str(phone_num), str(name_o.title()), int(delay))
+    print('_______________________________')
+    print(Fore.CYAN + '\n| Номер телефона: ', f'+38{phone_num}')
+    print(Fore.CYAN + '| Жертва: ', f'{name} {name_o}')
+    print(Fore.CYAN + '| Задержка между запросами: ', f'{delay}\n')
+    while True:
+        repeat = input(Fore.YELLOW + 'Данные верны? (д/н): ' + Style.RESET_ALL)
+        if repeat in ('н', 'Н'):
+            clear()
+            main()
+        elif repeat in ('д', 'Д'):
+            send_requests_call(str(name.title()), str(phone_num), str(name_o.title()), int(1))
+            break
+        else:
+            print(Fore.RED + 'Ошибка! Введите корректный ответ.')
+    exit()
 
 
 if __name__ == '__main__':
